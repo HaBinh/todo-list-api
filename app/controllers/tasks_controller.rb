@@ -2,7 +2,7 @@ class TasksController < ApplicationController
     before_action :get_task, only: [:update, :destroy]
 
     def create
-        @list = List.find(params[:belongs_to])
+        @list = List.find(params[:list_id])
         @task = @list.tasks.build(title: params[:title], complete: false)
         if @task.save 
           render json: @task, status: :created, location: @task
