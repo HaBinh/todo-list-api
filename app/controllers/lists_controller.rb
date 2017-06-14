@@ -2,7 +2,7 @@ class ListsController < ApplicationController
     before_action :get_list, only: [:show, :update, :destroy]
     
     def index
-        @lists = List.all
+        @lists = List.search(params[:search])
     end
 
     def create
