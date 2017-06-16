@@ -26,6 +26,8 @@ gem 'jbuilder', '~> 2.5'
 gem 'rack-cors'
 
 gem 'faker',                   '1.7.3'
+gem 'devise_token_auth'
+gem 'omniauth'
 
 group :development, :test do
   gem 'sqlite3', '1.3.13'
