@@ -13,3 +13,9 @@
   end  
 end
 
+User.create(
+  email: 'user@example.com', 
+  nickname: 'UOne', 
+  name: 'User One', 
+  password: "12345678")
+
