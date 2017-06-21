@@ -1,6 +1,11 @@
+u = User.create!(
+  email: 'user@example.com', 
+  nickname: 'UOne', 
+  name: 'User One', 
+  password: "12345678")
 5.times do |n|
   title = Faker::Date.between(6.days.ago, Date.today)
-  l = List.create!(
+  l = u.lists.create!(
     title: title
   )
   5.times do |m|
@@ -12,10 +17,4 @@
         )
   end  
 end
-
-User.create(
-  email: 'user@example.com', 
-  nickname: 'UOne', 
-  name: 'User One', 
-  password: "12345678")
 

@@ -2,11 +2,14 @@ class ListsController < ApplicationController
     before_action :get_list, only: [:show, :update, :destroy]
     
     def index
-        @lists = List.search(params[:search])
+        @user = User.find_by(id: params[:user_id])
+        @lists = @user.lists
+        @lists = @lists.search(params[:search])
     end
 
     def create
-        @list = List.new(list_params)
+        @user = User.find_by(id: params[:user_id])
+        @list = @user.lists.build(list_params)
         if @list.save
           render json: @list, status: :created, location: @list
         else
